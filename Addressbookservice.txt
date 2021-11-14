@@ -1,0 +1,74 @@
+-- UC1
+create database Addressbookservice;
+use Addressbookservice;
+
+-- UC2
+create table Addressbook(
+	first_name varchar(20),
+    last_name varchar(20),
+    address varchar(30),
+    city varchar(20),
+    state varchar(20),
+    zip int(10),
+    phoneNumber varchar(20),
+    email varchar(20)
+);
+
+-- UC3
+
+insert into Addressbook values('Brijesh', 'Kulal', 'First cross,bright road', 
+'Manjeshwar', 'Kerala', 671323, '892456199', 'brij@414'); 
+insert into Addressbook values('Rathish', 'Dk', 'First cross,bright road', 
+'Mangalore', 'Karnataka', 671323, '892456199', 'Rath@414'); 
+insert into Addressbook values('Vaishu', 'Kulal', 'First cross,bright road', 
+'Kumble', 'Kerala', 671321, '8924561994', 'brij@414'); 
+insert into Addressbook values('Ashwini', 'Rai', 'Near pvs baug,lime-tone road', 
+'hassan', 'Karnatka', 673331, '8926561994', 'ashwini@gmail.com'); 
+insert into Addressbook values('Sathish', 'Dk', 'First cross,RamRao road', 
+'Mangalore', 'Karnataka', 671321, '892451299', 'Sathis@414'); 
+
+select * from AddressBook;
+
+-- UC4
+
+update Addressbook set last_name = 'Shetty' where first_name = 'Rathish';
+update Addressbook set address = 'Ring master road, first cross' where first_name in('Vaishu');
+
+-- UC5
+insert into Addressbook values('Ravi', 'Rai', 'Near Forum ,nk street road', 
+'Mysore', 'Karnatka', 673241, '8926561994', 'Rai@gmail.com'); 
+delete from AddressBook where first_name = 'Ravi';
+
+-- UC6
+
+select * from AddressBook where city = 'Manjeshwar' or state = 'Kerala';
+
+-- UC7
+
+select count(*) from AddressBook where city = 'Mangalore';
+select count(*) from AddressBook where state = 'kerala';
+select count(*) from AddressBook where city = 'Mangalore' and state = 'Karnataka';
+
+-- UC8
+select * from AddressBook where city = 'Mangalore' order by first_name asc;
+select * from AddressBook where city = 'Mangalore' order by first_name desc;
+
+-- UC9
+alter table AddressBook add name varchar(30);
+alter table AddressBook add type varchar(15);
+update AddressBook set name = 'Brijesh kulal' where first_name = 'Brijesh';
+update AddressBook set name = 'Rathish Dk' where first_name = 'Rathish';
+update AddressBook set name = 'Sathish Dk' where first_name = 'Sathish';
+update AddressBook set name = 'Vaishu kulal' where first_name = 'Vaishu';
+update AddressBook set name = 'Ashwini Rai' where first_name = 'Ashwini';
+
+update AddressBook set type = 'family' where first_name = 'Vaishu';
+update AddressBook set type = 'profession' where first_name = 'Ashwini';
+update AddressBook set type = 'friends' where first_name in ('Rathish','Sathish','Brijesh');
+
+-- UC10
+select count(type) from AddressBook;
+select count(*) from AddressBook where type = 'friends';
+
+
+    
