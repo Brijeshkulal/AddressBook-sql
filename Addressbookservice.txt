@@ -70,5 +70,9 @@ update AddressBook set type = 'friends' where first_name in ('Rathish','Sathish'
 select count(type) from AddressBook;
 select count(*) from AddressBook where type = 'friends';
 
-
+-- UC11
+insert into AddressBook(first_name,last_name,address,city,state,zip,phonenumber,email) values('Ashwini', 'Mehta', 'Near karna circle', 
+'Pune', 'Maharashtra', 673331, '8926569993', 'Mehta@gmail.com'); 
+update AddressBook set type = 'family and friend' where last_name = 'Mehta';
+desc Addressbook;
     
