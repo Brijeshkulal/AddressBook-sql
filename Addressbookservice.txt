@@ -74,5 +74,24 @@ select count(*) from AddressBook where type = 'friends';
 insert into AddressBook(first_name,last_name,address,city,state,zip,phonenumber,email) values('Ashwini', 'Mehta', 'Near karna circle', 
 'Pune', 'Maharashtra', 673331, '8926569993', 'Mehta@gmail.com'); 
 update AddressBook set type = 'family and friend' where last_name = 'Mehta';
-desc Addressbook;
+desc Addressbook;git 
+
+-- UC12
+create table relation_type(
+type_Id int not null,
+type varchar(50) not null,
+primary key(Type)
+);
+insert into relation_type (type_Id,type) values
+ (1,"Family"),
+ (2,"Friends");
+ select * from relation_type;
+ select * from Addressbook inner join relation_type on Addressbook.type = relation_type.type;
+ 
+ -- UC13
+ select * from Addressbook inner join relation_type on Addressbook.type = relation_type.type where city = 'Manjeshwar' or state = 'Kerala';
+ select count(*) from Addressbook inner join relation_type on Addressbook.type = relation_type.type;
+ select city,count(*) from Addressbook inner join relation_type on Addressbook.type = relation_type.type group by city;
+ select * from Addressbook inner join relation_type on Addressbook.type = relation_type.type order by first_name;
+ select Addressbook.type,count(*) from Addressbook inner join relation_type on Addressbook.type = relation_type.type group by type;
     
